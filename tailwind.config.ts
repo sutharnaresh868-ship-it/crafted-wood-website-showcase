@@ -70,6 +70,10 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
+			boxShadow: {
+				'warm': '0 10px 30px -10px hsl(var(--wood-dark) / 0.2)',
+				'glow': '0 0 40px hsl(var(--amber) / 0.15)',
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',

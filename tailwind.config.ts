@@ -52,6 +52,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Custom wooden theme colors
+				'wood-dark': 'hsl(var(--wood-dark))',
+				'wood-medium': 'hsl(var(--wood-medium))',
+				'wood-light': 'hsl(var(--wood-light))',
+				'cream': 'hsl(var(--cream))',
+				'amber': 'hsl(var(--amber))',
+				'amber-dark': 'hsl(var(--amber-dark))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

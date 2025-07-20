@@ -2,41 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Definition of the design system for wooden handicraft business. All colors MUST be HSL. */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Warm, earthy color palette inspired by natural wood */
+    --background: 35 25% 96%;
+    --foreground: 25 25% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 35 20% 98%;
+    --card-foreground: 25 25% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 35 20% 98%;
+    --popover-foreground: 25 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Rich walnut brown as primary */
+    --primary: 25 65% 25%;
+    --primary-foreground: 35 25% 96%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Warm beige secondary */
+    --secondary: 35 30% 88%;
+    --secondary-foreground: 25 25% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Soft cream muted */
+    --muted: 40 25% 92%;
+    --muted-foreground: 25 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Golden amber accent */
+    --accent: 45 80% 70%;
+    --accent-foreground: 25 25% 15%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 35 25% 96%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 35 20% 85%;
+    --input: 35 20% 85%;
+    --ring: 25 65% 25%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom design tokens for wooden theme */
+    --wood-dark: 20 45% 20%;
+    --wood-medium: 25 40% 35%;
+    --wood-light: 35 30% 75%;
+    --cream: 40 30% 95%;
+    --amber: 45 85% 65%;
+    --amber-dark: 40 70% 45%;
+
+    /* Gradients */
+    --gradient-wood: linear-gradient(135deg, hsl(var(--wood-medium)), hsl(var(--wood-dark)));
+    --gradient-warm: linear-gradient(180deg, hsl(var(--cream)), hsl(var(--secondary)));
+    --gradient-amber: linear-gradient(135deg, hsl(var(--amber)), hsl(var(--amber-dark)));
+
+    /* Shadows */
+    --shadow-warm: 0 10px 30px -10px hsl(var(--wood-dark) / 0.2);
+    --shadow-glow: 0 0 40px hsl(var(--amber) / 0.15);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +124,36 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Hero button variant */
+  .btn-hero {
+    @apply bg-gradient-to-r from-amber to-amber-dark text-wood-dark font-semibold px-8 py-4 rounded-lg shadow-warm hover:shadow-glow transition-all duration-300 hover:scale-105;
+  }
+
+  /* Wood texture card */
+  .card-wood {
+    @apply bg-card border-wood-light shadow-warm rounded-xl overflow-hidden hover:shadow-glow transition-all duration-300;
+  }
+
+  /* Smooth hover animations */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-2;
+  }
+
+  /* Navigation link styling */
+  .nav-link {
+    @apply text-foreground hover:text-primary transition-colors duration-300 relative;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
   }
 }
